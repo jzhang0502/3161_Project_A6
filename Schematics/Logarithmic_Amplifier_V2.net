@@ -1,0 +1,51 @@
+* C:\Users\user\Documents\GitHub\3161_Project_A6\Schematics\Logarithmic_Amplifier_V2.asc
+VCC1 V+ 0 5
+VEE1 0 V- 5
+Cbyp1 V+ 0 10µ
+Cbyp2 0 V- 10µ
+V1 N004 0 SINE(0 100m 1k)
+XU3 0 N001 V+ V- N002 TL974
+R2 N001 N004 10k
+D1 N002 N001 D
+D2 Half N002 D
+R3 Half N001 10k
+XU4 0 N003 V+ V- Full TL974
+R4 Full N003 10k
+R5 N005 N004 9.4k
+R6 N003 Half 5k
+XU5 N003 N005 N003 pot Rtot=1K wiper=.4
+C5 0 V+ 100n
+C6 0 V- 100n
+C7 0 V+ 100n
+C8 0 V- 100n
+XU2 0 N006 V+ V- N007 TL974
+C3 V- 0 100n
+C4 V+ 0 100n
+R7 N006 Full 100k
+R8 N009 Full 100k
+R9 N008 N007 10k
+R10 N008 N010 10k
+XU6 0 N008 V+ V- Vo TL974
+C9 V+ 0 100n
+C10 V- 0 100n
+R11 Vo N008 10k
+Q2 N006 0 N007 0 BD135
+XU7 0 N009 V+ V- N010 TL974
+C11 V- 0 100n
+C12 V+ 0 100n
+Q3 N009 0 N010 0 BD135
+.model D D
+.lib C:\Users\user\AppData\Local\LTspice\lib\cmp\standard.dio
+.model NPN NPN
+.model PNP PNP
+.lib C:\Users\user\AppData\Local\LTspice\lib\cmp\standard.bjt
+.tran 10m
+* Precision full wave rectifier
+.inc pot.sub
+.inc BD135.mod
+.inc BD136.mod
+.meas TRAN ave_out AVG V(Vo) FROM 1m TO 5m
+* Increasing R7 and R8 resistance eliminates the effect\nof negative logarithmic values (negative spikes).\nHowever, there is a threshold as to how high R7 and\nR8 can go before circuit stop functioning properly.\nReason for this requires further investigation.
+.lib TL974.mod
+.backanno
+.end

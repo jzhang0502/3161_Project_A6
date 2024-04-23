@@ -1,0 +1,23 @@
+LTspice 24.0.11 for Windows
+Circuit: * C:\Users\user\Documents\GitHub\3161_Project_A6\Schematics\Logarithmic_Amplifier_V2.asc
+Start Time: Tue Apr 23 12:02:36 2024
+Warning: Multiple definitions of model "2scr375p" Type: BJT
+Warning: Multiple definitions of model "bc857b" Type: BJT
+Warning: Multiple definitions of model "bc847c" Type: BJT
+Warning: Multiple definitions of model "bc847b" Type: BJT
+U3:c_cc3: both pins shorted together -- ignoring.
+U4:c_cc3: both pins shorted together -- ignoring.
+U2:c_cc3: both pins shorted together -- ignoring.
+U6:c_cc3: both pins shorted together -- ignoring.
+U7:c_cc3: both pins shorted together -- ignoring.
+solver = Normal
+Maximum thread count: 24
+tnom = 27
+temp = 27
+method = modified trap
+Direct Newton iteration for .op point succeeded.
+
+ave_out: AVG(v(vo))=0.282697 FROM 0.001 TO 0.005
+
+Total elapsed time: 0.306 seconds.
+
